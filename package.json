@@ -8,8 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "element-plus": "^2.1.4",
-    "vue": "^3.2.31"
+    "js-md5": "^0.7.3",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",

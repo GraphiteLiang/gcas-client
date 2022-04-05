@@ -7,10 +7,12 @@ import {useRouter} from 'vue-router'
 
 defineProps<{ msg: string }>();
 
+const router = useRouter()
 const count = ref(0);
 const input_username = ref("graphite");
 const input_password = ref("123456")
 const login = () => {
+  router.push("/StatementView")
   const password = md5(input_password.value) 
   
   axios.post('http://127.0.0.1:8080/api/gcas/login',
@@ -22,7 +24,6 @@ const login = () => {
     (response) => {
       console.log(response.data)
       ElMessage.info("登陆成功！")
-      let router = useRouter()
       router.push("/StatementView")
       console.log(router)
     }

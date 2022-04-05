@@ -16,5 +16,5 @@ import "element-plus/theme-chalk/src/message.scss"
 
 const app = createApp(App);
 // app.use(ElementPlus);
-app.mount("#app");
 app.use(router)
+app.mount("#app");

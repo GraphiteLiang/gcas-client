@@ -4,9 +4,8 @@
     <BaseSide />
     <div>
       <img alt="Vue logo" class="element-plus-logo" src="./assets/logo.png" />
-      <LoginView msg="Welcome to GCAS" />
+      <router-view />
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
