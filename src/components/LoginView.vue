@@ -1,28 +1,31 @@
 <script setup lang="ts">
-import { getCurrentInstance, ref } from "vue";
+import { ref } from "vue";
 import { ElMessage } from 'element-plus';
 import axios from 'axios';
 import md5 from 'js-md5';
 import {useRouter} from 'vue-router'
-
+import { useStore } from "vuex";
+const store = useStore()
 defineProps<{ msg: string }>();
-
-const router = useRouter()
+console.log("store=" + store)
 const count = ref(0);
 const input_username = ref("graphite");
 const input_password = ref("123456")
+const router = useRouter()
 const login = () => {
-  router.push("/StatementView")
   const password = md5(input_password.value) 
-  
+  const userName = input_username.value
   axios.post('http://127.0.0.1:8080/api/gcas/login',
     {
-      userName:input_username.value,
+      userName:userName,
       password:password
     }
   ).then(
     (response) => {
       console.log(response.data)
+      const token = response.data.Token
+      store.commit("userName", userName)
+      store.commit("token", token)
       ElMessage.info("登陆成功！")
       router.push("/StatementView")
       console.log(router)

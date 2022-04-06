@@ -4,7 +4,7 @@
     <BaseSide />
     <div>
       <img alt="Vue logo" class="element-plus-logo" src="./assets/logo.png" />
-      <router-view />
+    <router-view></router-view>
     </div>
   </div>
 </template>
